@@ -1,6 +1,10 @@
 public class Triangulo{
     double lado;
 
+    public Triangulo(double lado) {
+        this.lado = lado;
+    }
+
     double calculoPerimetro() {
         return lado * 3;
     }

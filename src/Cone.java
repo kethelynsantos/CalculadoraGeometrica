@@ -2,6 +2,11 @@ public class Cone {
     double raio;
     double altura;
 
+    public Cone(double raio, double altura) {
+        this.raio = raio;
+        this.altura = altura;
+    }
+
     double volumeCone() {
         return (1.0 / 3.0) * Math.PI * Math.pow(raio, 2) * altura;
     }

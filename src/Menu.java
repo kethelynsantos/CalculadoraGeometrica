@@ -4,22 +4,10 @@ public class Menu {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        Triangulo triangulo = new Triangulo();
-        Quadrado quadrado = new Quadrado();
-        Retangulo retangulo = new Retangulo();
-        Circulo circulo = new Circulo();
-        Hexagono hexagono = new Hexagono();
-        Cubo cubo = new Cubo();
-        Paralelepipedo paralelepipedo = new Paralelepipedo();
-        Esfera esfera = new Esfera();
-        Piramide piramide = new Piramide();
-        Cilindro cilindro = new Cilindro();
-        Cone cone = new Cone();
-
-
         while (true){
             System.out.println("""
-                    \nEscolha a figura plana que deseja calcular:\n
+                    \nEscolha a figura plana que deseja calcular:
+                    
                     [0] Sair
                     [1] Triângulo Equilátero
                     [2] Quadrado
@@ -37,7 +25,7 @@ public class Menu {
             int escolha = sc.nextInt();
 
             if (escolha == 0) {
-                System.out.println("Programa encerrado.");
+                System.out.println("Programa encerrando...");
                 break;
             }
 
@@ -48,64 +36,90 @@ public class Menu {
 
             switch (escolha){
                 case 1 -> {
-                    System.out.println("Digite o lado do triângulo equilátero: ");
-                    triangulo.lado = sc.nextDouble();
+                    double lado;
 
-                    if (triangulo.lado <= 0) {
+                    System.out.println("Digite o lado do triângulo equilátero: ");
+                    lado = sc.nextDouble();
+
+                    Triangulo triangulo = new Triangulo(lado);
+
+                    if (lado <= 0) {
                         System.out.println("O lado deve ser positivo. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("\nPerimetro do triângulo: " + triangulo.calculoPerimetro() +
-                            "\nÁrea do triãngulo: " + triangulo.calculoArea());
+                            "\nÁrea do triãngulo: " + triangulo.calculoArea() + "\n");
                 }
                 case 2 -> {
+                    double lado;
+
                     System.out.println("Digite o lado do quadrado: ");
-                    quadrado.lado = sc.nextDouble();
-                    if (quadrado.lado <= 0) {
+                    lado = sc.nextDouble();
+
+                    Quadrado quadrado = new Quadrado(lado);
+
+                    if (lado <= 0) {
                         System.out.println("O lado deve ser positivo. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("\nPerimetro do quadrado: " + quadrado.perimetroQuadrado() +
-                            "\nÁrea do quadrado: " + quadrado.areaQuadrado());
+                            "\nÁrea do quadrado: " + quadrado.areaQuadrado() + "\n");
                 }
 
                 case 3-> {
+                    double base;
+                    double altura;
+
                     System.out.println("Digite a base do retangulo: ");
-                    retangulo.base = sc.nextDouble();
-                    if (retangulo.base <= 0) {
+                    base = sc.nextDouble();
+
+                    if (base <= 0) {
                         System.out.println("A base deve ser positiva. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("Digite a altura do retangulo: ");
-                    retangulo.altura = sc.nextDouble();
-                    if (retangulo.altura <= 0) {
+                    altura = sc.nextDouble();
+
+                    if (altura <= 0) {
                         System.out.println("A altura deve ser positiva. Tente novamente.");
                         continue;
                     }
 
+                    Retangulo retangulo = new Retangulo(base, altura);
+
                     System.out.println("\nPerimetro do retangulo: " + retangulo.perimetroRetangulo() +
-                            "\nÁrea do retangulo: " + retangulo.areaRetangulo());
+                            "\nÁrea do retangulo: " + retangulo.areaRetangulo() + "\n");
                 }
 
                 case 4 -> {
+                    double raio;
+
                     System.out.println("Digite o raio do circulo: ");
-                    circulo.raio = sc.nextDouble();
-                    if (circulo.raio <= 0) {
+                    raio = sc.nextDouble();
+
+                    Circulo circulo = new Circulo(raio);
+
+                    if (raio <= 0) {
                         System.out.println("O raio deve ser positivo. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("\nPerimetro do circulo: " + circulo.perimetroCirculo() +
-                            "\nÁrea do circulo: " + circulo.areaCirculo());
+                            "\nÁrea do circulo: " + circulo.areaCirculo() + "\n");
                 }
 
                 case 5 -> {
+                    double lado;
+
                     System.out.println("Digite o lado do hexagono: ");
-                    hexagono.lado = sc.nextDouble();
-                    if (hexagono.lado <= 0) {
+                    lado = sc.nextDouble();
+
+                    Hexagono hexagono = new Hexagono(lado);
+
+                    if (lado <= 0) {
                         System.out.println("O lado deve ser positivo. Tente novamente.");
                         continue;
                     }
@@ -115,9 +129,14 @@ public class Menu {
                 }
 
                 case 6 -> {
+                    double aresta;
+
                     System.out.println("Digite o comprimento de uma das arestas do cubo: ");
-                    cubo.aresta = sc.nextDouble();
-                    if (cubo.aresta <= 0) {
+                    aresta = sc.nextDouble();
+
+                    Cubo cubo = new Cubo(aresta);
+
+                    if (aresta <= 0) {
                         System.out.println("O comprimento deve ser positivo. Tente novamente.");
                         continue;
                     }
@@ -127,23 +146,30 @@ public class Menu {
                 }
 
                 case 7 -> {
+                    double largura;
+                    double altura;
+                    double comprimento;
+
                     System.out.println("Digite a largura do paralelepípedo: ");
-                    paralelepipedo.largura = sc.nextDouble();
-                    if (paralelepipedo.largura <= 0) {
+                    largura = sc.nextDouble();
+                    if (largura <= 0) {
                         System.out.println("A largura deve ser positiva. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("Digite a altura do paralelepípedo: ");
-                    paralelepipedo.altura = sc.nextDouble();
-                    if (paralelepipedo.altura <= 0) {
+                    altura = sc.nextDouble();
+                    if (altura <= 0) {
                         System.out.println("A altura deve ser positiva. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("Digite o comprimento do paralelepípedo: ");
-                    paralelepipedo.comprimento = sc.nextDouble();
-                    if (paralelepipedo.comprimento <= 0) {
+                    comprimento = sc.nextDouble();
+
+                    Paralelepipedo paralelepipedo = new Paralelepipedo(largura, altura, comprimento);
+
+                    if (comprimento <= 0) {
                         System.out.println("O comprimento deve ser positivo. Tente novamente.");
                         continue;
                     }
@@ -153,9 +179,14 @@ public class Menu {
                 }
 
                 case 8 -> {
+                    double raio;
+
                     System.out.println("Digite o raio da esfera: ");
-                    esfera.raio = sc.nextDouble();
-                    if (esfera.raio <= 0) {
+                    raio = sc.nextDouble();
+
+                    Esfera esfera = new Esfera(raio);
+
+                    if (raio <= 0) {
                         System.out.println("O raio deve ser positivo. Tente novamente.");
                         continue;
                     }
@@ -165,34 +196,48 @@ public class Menu {
                 }
 
                 case 9 -> {
+                    double ladoBase;
+                    double altura;
+
                     System.out.println("Digite o comprimento do lado da base: ");
-                    piramide.ladoBase = sc.nextDouble();
-                    if (piramide.ladoBase <= 0) {
+                    ladoBase = sc.nextDouble();
+
+                    if (ladoBase <= 0) {
                         System.out.println("O comprimento deve ser positivo. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("Digite a altura da pirâmide: ");
-                    piramide.altura = sc.nextDouble();
-                    if (piramide.altura <= 0) {
+                    altura = sc.nextDouble();
+
+                    Piramide piramide = new Piramide(ladoBase, altura);
+
+                    if (altura <= 0) {
                         System.out.println("A altura deve ser positiva. Tente novamente.");
                         continue;
                     }
 
-                    System.out.println("\nVolume da pirâmide: " + piramide.volumePiramide() +
+                    System.out.println("\nVolume da pirâmide: " + piramide.volumePiramide()+
                             "\nÁrea superficial da pirâmide: " + piramide.areaPiramide() + "\n");
                 }
 
                 case 10 -> {
+                    double raio;
+                    double altura;
+
                     System.out.println("Digite o raio do cilindro: ");
-                    cilindro.raio = sc.nextDouble();
-                    if (cilindro.raio <= 0) {
+                    raio = sc.nextDouble();
+
+                    if (raio <= 0) {
                         System.out.println("O raio deve ser positivo. Tente novamente.");
                         continue;
                     }
 
                     System.out.println("Digite a altura do cilindro: ");
-                    cilindro.altura = sc.nextDouble();
+                    altura = sc.nextDouble();
+
+                    Cilindro cilindro = new Cilindro(raio, altura);
+
                     if (cilindro.altura <= 0) {
                         System.out.println("A altura deve ser positiva. Tente novamente.");
                         continue;
@@ -203,15 +248,22 @@ public class Menu {
                 }
 
                 case 11 -> {
+                    double raio;
+                    double altura;
+
                     System.out.println("Digite o raio do clone: ");
-                    cone.raio = sc.nextDouble();
-                    if (cone.raio <= 0) {
+                    raio = sc.nextDouble();
+
+                    if (raio <= 0) {
                         System.out.println("O raio deve ser positivo. Tente novamente.");
                         continue; // Volta ao início do loop
                     }
 
                     System.out.println("Digite a altura do cone: ");
-                    cone.altura = sc.nextDouble();
+                    altura = sc.nextDouble();
+
+                    Cone cone = new Cone(raio, altura);
+
                     if (cone.altura <= 0) {
                         System.out.println("A altura deve ser positiva. Tente novamente.");
                         continue; // Volta ao início do loop
@@ -221,6 +273,19 @@ public class Menu {
                             "\nÁrea superficial do cone: " + cone.areaCone() + "\n");
                 }
             }
+
+            System.out.println("Deseja continuar?\n[1] sim\n[2] não");
+            int decisao = sc.nextInt();
+
+            if (decisao == 1) {
+                continue;
+            }
+
+            if (decisao == 2) {
+                System.out.println("\nPrograma encerrando...");
+                break;
+            }
         }
+
     }
 }

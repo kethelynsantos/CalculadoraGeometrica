@@ -1,11 +1,14 @@
 public class Esfera {
-    double pi = 3.14;
     double raio;
 
+    public Esfera(double raio) {
+        this.raio = raio;
+    }
+
     double volumeEsfera() {
-        return ((4 * pi) * Math.pow(raio, 3) / 3);
+        return ((4 * Math.PI) * Math.pow(raio, 3) / 3);
     }
     double areaEsfera() {
-        return (pi * Math.pow(raio, 2));
+        return (Math.PI * Math.pow(raio, 2));
     }
 }

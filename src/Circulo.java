@@ -1,11 +1,14 @@
 public class Circulo {
-    double pi = 3.14;
     double raio;
 
+    public Circulo(double raio) {
+        this.raio = raio;
+    }
+
     double perimetroCirculo() {
-        return ((2 * pi) * raio);
+        return ((2 * Math.PI) * raio);
     }
     double areaCirculo() {
-        return (pi * Math.pow(raio, 2));
+        return (Math.PI * Math.pow(raio, 2));
     }
 }

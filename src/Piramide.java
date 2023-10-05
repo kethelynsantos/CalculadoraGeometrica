@@ -2,6 +2,11 @@ public class Piramide {
     double ladoBase;
     double altura;
 
+    public Piramide(double ladoBase, double altura) {
+        this.ladoBase = ladoBase;
+        this.altura = altura;
+    }
+
     double volumePiramide() {
         return (1.0 / 3.0) * Math.pow(ladoBase, 2) * altura;
     }

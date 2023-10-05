@@ -1,6 +1,10 @@
 public class Hexagono {
     double lado;
 
+    public Hexagono(double lado) {
+        this.lado = lado;
+    }
+
     double perimetroHexagono() {
         return lado * 6;
     }
